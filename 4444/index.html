@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="tg">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>marken.tj</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:white;
+    color:#222;
+}
+
+/* HEADER */
+
+header{
+    height:105px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 50px;
+    background:#f5f5f5;
+    border-bottom:1px solid #ddd;
+}
+
+.logo{
+    font-size:48px;
+    font-weight:bold;
+    color:#2878b8;
+}
+
+.logo span{
+    color:#f5b800;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#078dcc;
+    font-size:18px;
+}
+
+.lang{
+    border:0;
+    background:white;
+    color:#078dcc;
+    font-size:17px;
+    cursor:pointer;
+    padding:8px;
+}
+
+.lang:hover{
+    background:#eaf7fc;
+    border-radius:6px;
+}
+
+.add-button{
+    border:0;
+    background:#f45112;
+    color:white;
+    padding:15px 24px;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.add-button:hover{
+    background:#d93f08;
+}
+
+/* SEARCH */
+
+.search-area{
+    background:#0798cf;
+    padding:30px 50px;
+}
+
+.search{
+    max-width:1150px;
+    margin:auto;
+    display:flex;
+    height:58px;
+}
+
+.search input{
+    flex:1;
+    border:3px solid #ffd000;
+    border-right:0;
+    border-radius:9px 0 0 9px;
+    padding:0 20px;
+    font-size:19px;
+    outline:none;
+}
+
+.search select{
+    width:270px;
+    border:0;
+    font-size:17px;
+    padding:0 12px;
+}
+
+.search button{
+    width:170px;
+    border:0;
+    background:#ffd000;
+    border-radius:0 9px 9px 0;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* CATEGORIES */
+
+.categories{
+    max-width:1400px;
+    margin:35px auto;
+    padding:0 35px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:8px 40px;
+}
+
+.category{
+    height:75px;
+
+    display:flex;
+    align-items:center;
+
+    gap:16px;
+
+    padding:10px 15px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#078dcc;
+
+    font-size:21px;
+
+    font-weight:bold;
+
+    transition:.2s;
+}
+
+.category:hover{
+    background:#eef8fc;
+    transform:translateX(4px);
+}
+
+.icon{
+    width:55px;
+    text-align:center;
+    font-size:40px;
+}
+
+/* ADS */
+
+.ads{
+    max-width:1400px;
+    margin:25px auto;
+    padding:0 35px;
+}
+
+.ads h2{
+    font-size:29px;
+    margin-bottom:25px;
+}
+
+.no-ads{
+    text-align:center;
+    color:#999;
+    font-size:19px;
+    padding:30px;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    header{
+        height:auto;
+        padding:20px;
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .menu a{
+        display:none;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+
+    .logo{
+        font-size:38px;
+    }
+
+    .search-area{
+        padding:20px;
+    }
+
+    .search{
+        height:auto;
+        flex-direction:column;
+        gap:5px;
+    }
+
+    .search input,
+    .search select,
+    .search button{
+        width:100%;
+        height:52px;
+        border-radius:8px;
+    }
+
+    .categories{
+        grid-template-columns:1fr;
+        padding:10px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        marken<span>.tj</span>
+    </div>
+
+
+    <div class="menu">
+
+        <a href="account.html" id="account">
+            Личный кабинет
+        </a>
+
+        <a href="login.html" id="login">
+            Вход и регистрация
+        </a>
+
+
+        <button
+            class="lang"
+            onclick="changeLanguage('tj')">
+
+            🇹🇯 TJ
+
+        </button>
+
+
+        <button
+            class="lang"
+            onclick="changeLanguage('ru')">
+
+            🇷🇺 RU
+
+        </button>
+
+
+        <button
+            class="lang"
+            onclick="changeLanguage('en')">
+
+            🇬🇧 EN
+
+        </button>
+
+
+        <button
+            class="add-button"
+            onclick="goAdd()"
+            id="addButton">
+
+            Подать объявление
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- SEARCH -->
+
+<section class="search-area">
+
+    <div class="search">
+
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Номи чизеро нависед..."
+        >
+
+
+        <select id="city">
+
+            <option>Весь Таджикистан</option>
+
+            <option>Душанбе</option>
+
+            <option>Хуҷанд</option>
+
+            <option>Бохтар</option>
+
+            <option>Кӯлоб</option>
+
+        </select>
+
+
+        <button
+            onclick="searchProduct()"
+            id="searchButton">
+
+            🔎 Ҷустуҷӯ
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<div class="categories">
+
+
+    <a href="phone.html" class="category">
+        <div class="icon">📱</div>
+        <div id="phone">Телефон</div>
+    </a>
+
+
+    <a href="car.html" class="category">
+        <div class="icon">🚗</div>
+        <div id="car">Мошин</div>
+    </a>
+
+
+    <a href="house.html" class="category">
+        <div class="icon">🏠</div>
+        <div id="house">Хона</div>
+    </a>
+
+
+    <a href="computer.html" class="category">
+        <div class="icon">💻</div>
+        <div id="computer">Компютер</div>
+    </a>
+
+
+    <a href="electronics.html" class="category">
+        <div class="icon">📺</div>
+        <div id="electronics">Электроника</div>
+    </a>
+
+
+    <a href="furniture.html" class="category">
+        <div class="icon">🛋️</div>
+        <div id="furniture">Мебел</div>
+    </a>
+
+
+    <a href="clothes.html" class="category">
+        <div class="icon">👕</div>
+        <div id="clothes">Либос</div>
+    </a>
+
+
+    <a href="sport.html" class="category">
+        <div class="icon">⚽</div>
+        <div id="sport">Варзиш</div>
+    </a>
+
+
+    <a href="animals.html" class="category">
+        <div class="icon">🐶</div>
+        <div id="animals">Ҳайвонот</div>
+    </a>
+
+
+    <a href="service.html" class="category">
+        <div class="icon">🛠️</div>
+        <div id="service">Хизматрасонӣ</div>
+    </a>
+
+
+    <a href="business.html" class="category">
+        <div class="icon">💼</div>
+        <div id="business">Бизнес</div>
+    </a>
+
+
+    <a href="other.html" class="category">
+        <div class="icon">📦</div>
+        <div id="other">Дигар</div>
+    </a>
+
+</div>
+
+
+<!-- ANNOUNCEMENTS -->
+
+<div class="ads">
+
+    <h2 id="newAds">
+        📢 Эълонҳои нав
+    </h2>
+
+    <div
+        class="no-ads"
+        id="noAds">
+
+        Ҳоло эълон нест.
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ================= LANGUAGE ================= */
+
+const translations = {
+
+    tj: {
+
+        account:"Личный кабинет",
+
+        login:"Вход и регистрация",
+
+        add:"Подать объявление",
+
+        search:"Ҷустуҷӯ",
+
+        placeholder:"Номи чизеро нависед...",
+
+        all:"Весь Таджикистан",
+
+        phone:"Телефон",
+
+        car:"Мошин",
+
+        house:"Хона",
+
+        computer:"Компютер",
+
+        electronics:"Электроника",
+
+        furniture:"Мебел",
+
+        clothes:"Либос",
+
+        sport:"Варзиш",
+
+        animals:"Ҳайвонот",
+
+        service:"Хизматрасонӣ",
+
+        business:"Бизнес",
+
+        other:"Дигар",
+
+        newAds:"📢 Эълонҳои нав",
+
+        noAds:"Ҳоло эълон нест."
+
+    },
+
+
+    ru: {
+
+        account:"Личный кабинет",
+
+        login:"Вход и регистрация",
+
+        add:"Подать объявление",
+
+        search:"Поиск",
+
+        placeholder:"Введите название товара...",
+
+        all:"Весь Таджикистан",
+
+        phone:"Телефоны",
+
+        car:"Автомобили",
+
+        house:"Недвижимость",
+
+        computer:"Компьютеры",
+
+        electronics:"Электроника",
+
+        furniture:"Мебель",
+
+        clothes:"Одежда",
+
+        sport:"Спорт",
+
+        animals:"Животные",
+
+        service:"Услуги",
+
+        business:"Бизнес",
+
+        other:"Другое",
+
+        newAds:"📢 Новые объявления",
+
+        noAds:"Объявлений пока нет."
+
+    },
+
+
+    en: {
+
+        account:"My account",
+
+        login:"Login and registration",
+
+        add:"Post an ad",
+
+        search:"Search",
+
+        placeholder:"Enter product name...",
+
+        all:"All Tajikistan",
+
+        phone:"Phones",
+
+        car:"Cars",
+
+        house:"Real estate",
+
+        computer:"Computers",
+
+        electronics:"Electronics",
+
+        furniture:"Furniture",
+
+        clothes:"Clothes",
+
+        sport:"Sports",
+
+        animals:"Animals",
+
+        service:"Services",
+
+        business:"Business",
+
+        other:"Other",
+
+        newAds:"📢 New advertisements",
+
+        noAds:"No advertisements yet."
+
+    }
+
+};
+
+
+/* ================= CHANGE LANGUAGE ================= */
+
+function changeLanguage(language){
+
+    let t = translations[language];
+
+
+    document.getElementById("account").textContent =
+        t.account;
+
+    document.getElementById("login").textContent =
+        t.login;
+
+    document.getElementById("addButton").textContent =
+        t.add;
+
+    document.getElementById("searchButton").textContent =
+        "🔎 " + t.search;
+
+    document.getElementById("searchInput").placeholder =
+        t.placeholder;
+
+
+    document.getElementById("phone").textContent =
+        t.phone;
+
+    document.getElementById("car").textContent =
+        t.car;
+
+    document.getElementById("house").textContent =
+        t.house;
+
+    document.getElementById("computer").textContent =
+        t.computer;
+
+    document.getElementById("electronics").textContent =
+        t.electronics;
+
+    document.getElementById("furniture").textContent =
+        t.furniture;
+
+    document.getElementById("clothes").textContent =
+        t.clothes;
+
+    document.getElementById("sport").textContent =
+        t.sport;
+
+    document.getElementById("animals").textContent =
+        t.animals;
+
+    document.getElementById("service").textContent =
+        t.service;
+
+    document.getElementById("business").textContent =
+        t.business;
+
+    document.getElementById("other").textContent =
+        t.other;
+
+
+    document.getElementById("newAds").textContent =
+        t.newAds;
+
+    document.getElementById("noAds").textContent =
+        t.noAds;
+
+
+    /* шаҳри ҷустуҷӯ */
+
+    document.getElementById("city")
+        .options[0].text =
+        t.all;
+
+
+    /* Забонро нигоҳ медорем */
+
+    localStorage.setItem(
+        "markenLanguage",
+        language
+    );
+
+}
+
+
+/* ================= LOAD LANGUAGE ================= */
+
+let savedLanguage =
+    localStorage.getItem("markenLanguage");
+
+
+if(savedLanguage){
+
+    changeLanguage(savedLanguage);
+
+}
+
+
+/* ================= ADD ================= */
+
+function goAdd(){
+
+    window.location.href =
+        "add.html";
+
+}
+
+
+/* ================= SEARCH ================= */
+
+function searchProduct(){
+
+    let text =
+        document
+        .getElementById("searchInput")
+        .value
+        .trim();
+
+
+    if(text === ""){
+
+        alert(
+            "Номи маҳсулотро нависед!"
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "Ҷустуҷӯ: " + text
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

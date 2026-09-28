@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="tg">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>marken.tj - Подать объявление</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7f9;
+    color:#222;
+}
+
+/* HEADER */
+
+header{
+    height:80px;
+    background:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 40px;
+
+    border-bottom:1px solid #ddd;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#078aca;
+}
+
+.back{
+    text-decoration:none;
+    background:#f45112;
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+}
+
+/* MAIN */
+
+.container{
+    width:90%;
+    max-width:850px;
+
+    margin:35px auto;
+}
+
+.form-box{
+    background:white;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 20px rgba(0,0,0,.12);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+/* LABEL */
+
+label{
+    display:block;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+}
+
+/* INPUT */
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:18px;
+
+    border:1px solid #d5d5d5;
+
+    border-radius:9px;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:#078aca;
+}
+
+textarea{
+    height:120px;
+    resize:none;
+}
+
+/* TWO COLUMNS */
+
+.row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+}
+
+/* CATEGORY */
+
+.category-info{
+
+    background:#f5fbff;
+
+    border:1px solid #bde7fa;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+}
+
+.category-title{
+
+    color:#078aca;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    margin-bottom:18px;
+}
+
+/* PHOTO */
+
+.photo-box{
+
+    border:2px dashed #078aca;
+
+    border-radius:12px;
+
+    padding:30px;
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    background:#f8fcff;
+}
+
+.photo-button{
+
+    display:inline-block;
+
+    background:#078aca;
+
+    color:white;
+
+    padding:14px 25px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+#photos{
+    display:none;
+}
+
+#photoCount{
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+    color:#555;
+}
+
+/* PHOTO PREVIEWS */
+
+#previewContainer{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.photo-preview{
+
+    width:100%;
+
+    height:150px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+}
+
+/* PUBLISH */
+
+.publish{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:9px;
+
+    background:#f45112;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.publish:hover{
+
+    background:#d93e08;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    header{
+        padding:0 15px;
+    }
+
+    .row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .form-box{
+        padding:20px;
+    }
+
+    #previewContainer{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        marken.tj
+    </div>
+
+    <a
+        href="index.html"
+        class="back"
+    >
+        ← Бозгашт
+    </a>
+
+</header>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+<div class="form-box">
+
+
+<h1>
+    📢 Подать объявление
+</h1>
+
+
+<!-- CATEGORY -->
+
+<label>
+    Категория
+</label>
+
+<select
+    id="category"
+    onchange="showFields()"
+>
+
+    <option value="">
+        Категорияро интихоб кунед
+    </option>
+
+    <option value="car">
+        🚗 Мошин
+    </option>
+
+    <option value="phone">
+        📱 Телефон
+    </option>
+
+    <option value="house">
+        🏠 Хона
+    </option>
+
+    <option value="computer">
+        💻 Компютер
+    </option>
+
+    <option value="electronics">
+        📺 Электроника
+    </option>
+
+    <option value="furniture">
+        🛋️ Мебел
+    </option>
+
+    <option value="clothes">
+        👕 Либос
+    </option>
+
+    <option value="other">
+        📦 Дигар
+    </option>
+
+</select>
+
+
+<!-- CATEGORY FIELDS -->
+
+<div id="categoryFields"></div>
+
+
+<!-- NAME -->
+
+<label id="nameLabel">
+    Номи маҳсулот
+</label>
+
+<input
+    id="name"
+    type="text"
+    placeholder="Номи маҳсулотро нависед"
+>
+
+
+<!-- PRICE + CITY -->
+
+<div class="row">
+
+    <div>
+
+        <label>
+            Нарх
+        </label>
+
+        <input
+            id="price"
+            type="number"
+            placeholder="Масалан: 800"
+        >
+
+    </div>
+
+
+    <div>
+
+        <label>
+            Шаҳр
+        </label>
+
+        <input
+            id="city"
+            type="text"
+            placeholder="Масалан: Душанбе"
+        >
+
+    </div>
+
+</div>
+
+
+<!-- PHONE -->
+
+<label>
+    Рақами телефон
+</label>
+
+<input
+    id="phone"
+    type="tel"
+    placeholder="+992 900000000"
+>
+
+
+<!-- DESCRIPTION -->
+
+<label>
+    Маълумоти иловагӣ
+</label>
+
+<textarea
+    id="description"
+    placeholder="Маълумоти бештар дар бораи маҳсулот..."
+></textarea>
+
+
+<!-- PHOTOS -->
+
+<label>
+    Аксҳои маҳсулот
+</label>
+
+<div class="photo-box">
+
+    <label
+        for="photos"
+        class="photo-button"
+    >
+        📷 Выберите фотографии
+    </label>
+
+    <input
+        id="photos"
+        type="file"
+        accept="image/*"
+        multiple
+    >
+
+    <p id="photoCount">
+        Акс интихоб нашудааст
+    </p>
+
+    <div id="previewContainer"></div>
+
+</div>
+
+
+<!-- PUBLISH -->
+
+<button
+    class="publish"
+    onclick="publishAd()"
+>
+    📢 Эълонро нашр кардан
+</button>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+
+/* =================================
+   CATEGORY
+================================= */
+
+function showFields(){
+
+    let category =
+    document.getElementById(
+        "category"
+    ).value;
+
+
+    let box =
+    document.getElementById(
+        "categoryFields"
+    );
+
+
+    let nameLabel =
+    document.getElementById(
+        "nameLabel"
+    );
+
+
+    let nameInput =
+    document.getElementById(
+        "name"
+    );
+
+
+    box.innerHTML = "";
+
+
+    /* МОШИН */
+
+    if(category === "car"){
+
+        nameLabel.innerText =
+        "Номи мошин";
+
+        nameInput.placeholder =
+        "Масалан: BMW X5";
+
+
+        box.innerHTML = `
+
+        <div class="category-info">
+
+        <div class="category-title">
+        🚗 Маълумоти мошин
+        </div>
+
+        <label>
+        Маркаи мошин
+        </label>
+
+        <input
+        id="brand"
+        placeholder="BMW, Mercedes, Toyota..."
+        >
+
+        <label>
+        Модели мошин
+        </label>
+
+        <input
+        id="model"
+        placeholder="X5, Camry, C-Class..."
+        >
+
+        <div class="row">
+
+        <div>
+
+        <label>
+        Соли барориш
+        </label>
+
+        <input
+        id="year"
+        type="number"
+        placeholder="2020"
+        >
+
+        </div>
+
+        <div>
+
+        <label>
+        Ҳаҷми муҳаррик
+        </label>
+
+        <input
+        id="engine"
+        placeholder="2.0"
+        >
+
+        </div>
+
+        </div>
+
+
+        <label>
+        Сӯзишворӣ
+        </label>
+
+        <select id="fuel">
+
+        <option>
+        Интихоб кунед
+        </option>
+
+        <option>
+        Бензин
+        </option>
+
+        <option>
+        Дизел
+        </option>
+
+        <option>
+        Газ
+        </option>
+
+        <option>
+        Гибрид
+        </option>
+
+        <option>
+        Электр
+        </option>
+
+        </select>
+
+
+        <label>
+        Қуттии суръат
+        </label>
+
+        <select id="gear">
+
+        <option>
+        Интихоб кунед
+        </option>
+
+        <option>
+        Механика
+        </option>
+
+        <option>
+        Автомат
+        </option>
+
+        <option>
+        Робот
+        </option>
+
+        <option>
+        Вариатор
+        </option>
+
+        </select>
+
+
+        <label>
+        Давлат
+        </label>
+
+        <input
+        id="country"
+        placeholder="Германия, Ҷопон, Корея..."
+        >
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* ТЕЛЕФОН */
+
+    else if(category === "phone"){
+
+        nameLabel.innerText =
+        "Номи телефон";
+
+        nameInput.placeholder =
+        "Масалан: iPhone 15 Pro";
+
+
+        box.innerHTML = `
+
+        <div class="category-info">
+
+        <div class="category-title">
+        📱 Маълумоти телефон
+        </div>
+
+
+        <label>
+        Бренд
+        </label>
+
+        <input
+        id="brand"
+        placeholder="Apple, Samsung, Xiaomi..."
+        >
+
+
+        <label>
+        Модел
+        </label>
+
+        <input
+        id="model"
+        placeholder="iPhone 15 Pro"
+        >
+
+
+        <div class="row">
+
+        <div>
+
+        <label>
+        Хотира
+        </label>
+
+        <input
+        id="memory"
+        placeholder="256 GB"
+        >
+
+        </div>
+
+
+        <div>
+
+        <label>
+        RAM
+        </label>
+
+        <input
+        id="ram"
+        placeholder="8 GB"
+        >
+
+        </div>
+
+        </div>
+
+
+        <label>
+        Ранг
+        </label>
+
+        <input
+        id="color"
+        placeholder="Сиёҳ, сафед..."
+        >
+
+
+        <label>
+        Ҳолат
+        </label>
+
+        <select id="condition">
+
+        <option>
+        Нав
+        </option>
+
+        <option>
+        Истифодашуда
+        </option>
+
+        <option>
+        Аъло
+        </option>
+
+        </select>
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* ХОНА */
+
+    else if(category === "house"){
+
+        nameLabel.innerText =
+        "Номи хона";
+
+        nameInput.placeholder =
+        "Масалан: Хонаи 3-ҳуҷрагӣ";
+
+
+        box.innerHTML = `
+
+        <div class="category-info">
+
+        <div class="category-title">
+        🏠 Маълумоти хона
+        </div>
+
+
+        <div class="row">
+
+        <div>
+
+        <label>
+        Шумораи ҳуҷраҳо
+        </label>
+
+        <input
+        id="rooms"
+        type="number"
+        placeholder="3"
+        >
+
+        </div>
+
+
+        <div>
+
+        <label>
+        Масоҳат
+        </label>
+
+        <input
+        id="area"
+        placeholder="120 м²"
+        >
+
+        </div>
+
+        </div>
+
+
+        <label>
+        Ошёна
+        </label>
+
+        <input
+        id="floor"
+        placeholder="5"
+        >
+
+
+        <label>
+        Суроға
+        </label>
+
+        <input
+        id="address"
+        placeholder="Душанбе, марказ..."
+        >
+
+
+        <label>
+        Ҳолати хона
+        </label>
+
+        <select id="condition">
+
+        <option>
+        Нав
+        </option>
+
+        <option>
+        Таъмиршуда
+        </option>
+
+        <option>
+        Таъмирталаб
+        </option>
+
+        </select>
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* КОМПЮТЕР */
+
+    else if(category === "computer"){
+
+        nameLabel.innerText =
+        "Номи компютер";
+
+        nameInput.placeholder =
+        "Масалан: ASUS TUF";
+
+
+        box.innerHTML = `
+
+        <div class="category-info">
+
+        <div class="category-title">
+        💻 Маълумоти компютер
+        </div>
+
+
+        <label>
+        Бренд
+        </label>
+
+        <input
+        id="brand"
+        placeholder="HP, Lenovo, ASUS..."
+        >
+
+
+        <label>
+        Процессор
+        </label>
+
+        <input
+        id="processor"
+        placeholder="Intel Core i5"
+        >
+
+
+        <label>
+        RAM
+        </label>
+
+        <input
+        id="ram"
+        placeholder="16 GB"
+        >
+
+
+        <label>
+        Хотира
+        </label>
+
+        <input
+        id="memory"
+        placeholder="512 GB SSD"
+        >
+
+
+        <label>
+        Видеокарта
+        </label>
+
+        <input
+        id="video"
+        placeholder="RTX 4060"
+        >
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* ЭЛЕКТРОНИКА */
+
+    else if(category === "electronics"){
+
+        nameLabel.innerText =
+        "Номи электроника";
+
+        nameInput.placeholder =
+        "Масалан: Samsung TV";
+
+
+        box.innerHTML = `
+
+        <div class="category-info">
+
+        <div class="category-title">
+        📺 Маълумоти электроника
+        </div>
+
+
+        <label>
+        Бренд
+        </label>
+
+        <input
+        id="brand"
+        placeholder="Samsung, LG, Sony..."
+        >
+
+
+        <label>
+        Модел
+        </label>
+
+        <input
+        id="model"
+        placeholder="Номи модел"
+        >
+
+
+        <label>
+        Ҳолат
+        </label>
+
+        <input
+        id="condition"
+        placeholder="Нав ё истифодашуда"
+        >
+
+
+        <label>
+        Кафолат
+        </label>
+
+        <input
+        id="warranty"
+        placeholder="1 сол"
+        >
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* МЕБЕЛ */
+
+    else if(category === "furniture"){
+
+        nameLabel.innerText =
+        "Номи мебел";
+
+        nameInput.placeholder =
+        "Масалан: Диван";
+
+
+        box.innerHTML = `
+
+        <div class="category-info">
+
+        <div class="category-title">
+        🛋️ Маълумоти мебел
+        </div>
+
+
+        <label>
+        Навъи мебел
+        </label>
+
+        <input
+        id="type"
+        placeholder="Диван, шкаф, миз..."
+        >
+
+
+        <label>
+        Материал
+        </label>
+
+        <input
+        id="material"
+        placeholder="Чӯб, металл..."
+        >
+
+
+        <label>
+        Ҳолат
+        </label>
+
+        <input
+        id="condition"
+        placeholder="Нав ё истифодашуда"
+        >
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* ЛИБОС */
+
+    else if(category === "clothes"){
+
+        nameLabel.innerText =
+        "Номи либос";
+
+        nameInput.placeholder =
+        "Масалан: Куртаи мардона";
+
+
+        box.innerHTML = `
+
+        <div class="category-info">
+
+        <div class="category-title">
+        👕 Маълумоти либос
+        </div>
+
+
+        <label>
+        Андоза
+        </label>
+
+        <input
+        id="size"
+        placeholder="S, M, L, XL"
+        >
+
+
+        <label>
+        Ранг
+        </label>
+
+        <input
+        id="color"
+        placeholder="Сиёҳ, сафед..."
+        >
+
+
+        <label>
+        Ҳолат
+        </label>
+
+        <input
+        id="condition"
+        placeholder="Нав"
+        >
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* ДИГАР */
+
+    else if(category === "other"){
+
+        nameLabel.innerText =
+        "Номи маҳсулот";
+
+        nameInput.placeholder =
+        "Номи маҳсулотро нависед";
+
+
+        box.innerHTML = `
+
+        <div class="category-info">
+
+        <div class="category-title">
+        📦 Маълумоти маҳсулот
+        </div>
+
+
+        <label>
+        Маълумоти иловагӣ
+        </label>
+
+        <textarea
+        id="otherInfo"
+        placeholder="Дар бораи маҳсулот маълумот нависед..."
+        ></textarea>
+
+        </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =================================
+   SELECT MULTIPLE PHOTOS
+================================= */
+
+document
+.getElementById("photos")
+.addEventListener(
+    "change",
+    function(){
+
+        let files =
+        this.files;
+
+
+        /* MAXIMUM 10 */
+
+        if(files.length > 10){
+
+            alert(
+                "⚠️ Максимум 10 акс интихоб кардан мумкин аст!"
+            );
+
+            this.value = "";
+
+            document.getElementById(
+                "photoCount"
+            ).innerText =
+            "Акс интихоб нашудааст";
+
+            document.getElementById(
+                "previewContainer"
+            ).innerHTML = "";
+
+            return;
+        }
+
+
+        /* NUMBER */
+
+        if(files.length === 0){
+
+            document.getElementById(
+                "photoCount"
+            ).innerText =
+            "Акс интихоб нашудааст";
+
+            return;
+        }
+
+
+        document.getElementById(
+            "photoCount"
+        ).innerText =
+        "📷 " +
+        files.length +
+        " акс интихоб шуд";
+
+
+        /* CLEAR PREVIEW */
+
+        let container =
+        document.getElementById(
+            "previewContainer"
+        );
+
+        container.innerHTML = "";
+
+
+        /* SHOW PHOTOS */
+
+        for(
+            let i = 0;
+            i < files.length;
+            i++
+        ){
+
+            let reader =
+            new FileReader();
+
+
+            reader.onload =
+            function(e){
+
+                let img =
+                document.createElement(
+                    "img"
+                );
+
+                img.src =
+                e.target.result;
+
+                img.className =
+                "photo-preview";
+
+                container.appendChild(
+                    img
+                );
+
+            };
+
+
+            reader.readAsDataURL(
+                files[i]
+            );
+
+        }
+
+    }
+);
+
+
+/* =================================
+   PUBLISH AD
+================================= */
+
+function publishAd(){
+
+    let category =
+    document.getElementById(
+        "category"
+    ).value;
+
+
+    let name =
+    document.getElementById(
+        "name"
+    ).value.trim();
+
+
+    let price =
+    document.getElementById(
+        "price"
+    ).value.trim();
+
+
+    let city =
+    document.getElementById(
+        "city"
+    ).value.trim();
+
+
+    let phone =
+    document.getElementById(
+        "phone"
+    ).value.trim();
+
+
+    let description =
+    document.getElementById(
+        "description"
+    ).value.trim();
+
+
+    let files =
+    document.getElementById(
+        "photos"
+    ).files;
+
+
+    /* CHECK */
+
+    if(
+        category === "" ||
+        name === "" ||
+        price === "" ||
+        phone === "" ||
+        files.length === 0
+    ){
+
+        alert(
+            "⚠️ Категория, ном, нарх, рақам ва ақаллан 1 аксро пур кунед!"
+        );
+
+        return;
+    }
+
+
+    if(files.length > 10){
+
+        alert(
+            "⚠️ Максимум 10 акс!"
+        );
+
+        return;
+    }
+
+
+    /* READ ALL PHOTOS */
+
+    let photos = [];
+
+    let completed = 0;
+
+
+    for(
+        let i = 0;
+        i < files.length;
+        i++
+    ){
+
+        let reader =
+        new FileReader();
+
+
+        reader.onload =
+        function(e){
+
+            photos.push(
+                e.target.result
+            );
+
+            completed++;
+
+
+            if(
+                completed ===
+                files.length
+            ){
+
+                saveAd(
+                    category,
+                    name,
+                    price,
+                    city,
+                    phone,
+                    description,
+                    photos
+                );
+
+            }
+
+        };
+
+
+        reader.readAsDataURL(
+            files[i]
+        );
+
+    }
+
+}
+
+
+/* =================================
+   SAVE
+================================= */
+
+function saveAd(
+    category,
+    name,
+    price,
+    city,
+    phone,
+    description,
+    photos
+){
+
+    let ad = {
+
+        id:Date.now(),
+
+        category:category,
+
+        name:name,
+
+        price:price,
+
+        city:city,
+
+        phone:phone,
+
+        description:description,
+
+        images:photos,
+
+        details:{}
+
+    };
+
+
+    /* CATEGORY DETAILS */
+
+    let fields =
+    document.querySelectorAll(
+        "#categoryFields input, #categoryFields select, #categoryFields textarea"
+    );
+
+
+    fields.forEach(
+        function(field){
+
+            if(field.id){
+
+                ad.details[
+                    field.id
+                ] =
+                field.value;
+
+            }
+
+        }
+    );
+
+
+    /* OLD ADS */
+
+    let ads =
+    JSON.parse(
+        localStorage.getItem(
+            "markenAds"
+        )
+    ) || [];
+
+
+    /* NEW AD */
+
+    ads.unshift(ad);
+
+
+    /* SAVE */
+
+    localStorage.setItem(
+        "markenAds",
+        JSON.stringify(ads)
+    );
+
+
+    alert(
+        "✅ Эълони шумо бомуваффақият нашр шуд!"
+    );
+
+
+    /* BACK TO HOME */
+
+    window.location.href =
+    "index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

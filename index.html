@@ -1,735 +1,365 @@
-```html
 <!DOCTYPE html>
 <html lang="tg">
 <head>
+    <meta name="google-site-verification" content="zHQmb8447wFTmXzhM_MQWEX3aWJPgdOEVbjVb9dAi4s" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SPORT TRAINER</title>
+
+<!-- SEO Meta Tags -->
+<title>DIAMOND X — Хариди Алмазҳо ва Ваучерҳои Бозӣ бо Нархи Арзон</title>
+<meta name="description" content="Пур кардани баланси алмазҳо (Diamonds) ва ваучерҳо барои бозиҳо бо ID. Расонидани зуд, бехатар ва бо нархҳои муносиб дар DIAMOND X.">
+<meta name="keywords" content="алмаз, харидани алмаз, diamond store, ваучер, донат, пополнение алмазов, Free Fire diamonds">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook / Telegram -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="DIAMOND X — Game Store">
+<meta property="og:description" content="Хариди зуд ва бехатари алмазҳо ва ваучерҳои бозӣ бо Player ID.">
+<meta property="og:image" content="https://site-i-shumo.tj/preview.jpg">
+
+<link rel="preconnect" href="google-site-verification: google1fd79e35262dd117.html">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root{
+    --bg:#050912;
+    --panel:rgba(9,16,29,.88);
+    --panel2:rgba(14,24,42,.82);
+    --line:rgba(255,255,255,.09);
+
+    --text:#f5f8ff;
+    --muted:#8794aa;
+
+    --blue:#3b82f6;
+    --cyan:#22d3ee;
+    --green:#22c55e;
+    --red:#ef4444;
+
+    --shadow:0 25px 80px rgba(0,0,0,.45);
+}
+
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
+    font-family:Inter,Arial,sans-serif;
     background:
-        radial-gradient(circle at 15% 20%, rgba(0,255,170,.18), transparent 25%),
-        radial-gradient(circle at 85% 80%, rgba(0,140,255,.20), transparent 30%),
-        linear-gradient(135deg,#050816,#07152b,#06101f);
-    color:white;
+        radial-gradient(circle at 70% 15%,rgba(34,211,238,.12),transparent 25%),
+        radial-gradient(circle at 20% 80%,rgba(59,130,246,.10),transparent 30%),
+        var(--bg);
+    color:var(--text);
     min-height:100vh;
     overflow-x:hidden;
 }
 
-button{
-    border:none;
-    cursor:pointer;
-}
-
-.app{
-    min-height:100vh;
-    display:flex;
-}
-
-/* SIDEBAR */
-.sidebar{
-    width:260px;
-    min-height:100vh;
+body::before{
+    content:"";
     position:fixed;
-    left:0;
-    top:0;
-    padding:22px 15px;
-    background:rgba(7,14,30,.82);
-    border-right:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
-    z-index:50;
+    inset:0;
+    pointer-events:none;
+    opacity:.28;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:45px 45px;
 }
 
-.logo{
+/* =========================
+   TOP SEARCH
+========================= */
+
+.top{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(760px,calc(100% - 40px));
+    height:64px;
     display:flex;
     align-items:center;
     gap:12px;
-    padding:10px;
-    margin-bottom:25px;
+    padding:9px 12px;
+    z-index:1000;
+
+    background:rgba(8,15,27,.88);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--line);
+    border-radius:18px;
+    box-shadow:var(--shadow);
 }
 
-.logo-icon{
-    width:48px;
-    height:48px;
-    border-radius:15px;
+.logo-mini{
+    width:44px;
+    height:44px;
+    flex-shrink:0;
+
     display:grid;
     place-items:center;
-    font-size:25px;
-    background:linear-gradient(135deg,#00f5a0,#00a8ff);
-    box-shadow:0 10px 30px rgba(0,220,180,.25);
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(135deg,#2563eb,#22d3ee);
+
+    box-shadow:
+        0 0 30px rgba(34,211,238,.25);
+
+    font-size:22px;
 }
 
-.logo h1{
-    font-size:20px;
+.search{
+    flex:1;
+    height:44px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:0 14px;
+
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:12px;
 }
 
-.logo span{
-    color:#00e6a0;
+.search span{
+    color:var(--muted);
+    font-size:18px;
+}
+
+.search input{
+    width:100%;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:white;
+    font-size:14px;
+}
+
+.search input::placeholder{
+    color:#66748a;
+}
+
+.search-btn{
+    border:0;
+    cursor:pointer;
+
+    width:44px;
+    height:44px;
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+
+    font-size:18px;
+}
+
+/* =========================
+   LEFT PANEL
+========================= */
+
+.panel{
+    position:fixed;
+    top:100px;
+    left:20px;
+    bottom:20px;
+
+    width:255px;
+
+    background:var(--panel);
+    backdrop-filter:blur(22px);
+
+    border:1px solid var(--line);
+    border-radius:22px;
+
+    padding:18px;
+
+    box-shadow:var(--shadow);
+
+    z-index:500;
+
+    overflow-y:auto;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:24px;
+}
+
+.brand-icon{
+    width:46px;
+    height:46px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(135deg,#1d4ed8,#06b6d4);
+
+    font-size:23px;
+
+    box-shadow:0 0 30px rgba(34,211,238,.18);
+}
+
+.brand h2{
+    font-size:16px;
+}
+
+.brand p{
+    margin-top:3px;
+    font-size:11px;
+    color:var(--muted);
+}
+
+.menu-title{
+    margin:20px 8px 9px;
+
+    color:#617087;
+    font-size:10px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
 }
 
 .menu{
     display:flex;
     flex-direction:column;
-    gap:8px;
+    gap:6px;
 }
 
 .menu button{
     width:100%;
-    padding:13px 14px;
-    border-radius:14px;
+    border:1px solid transparent;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:12px;
+
     background:transparent;
-    color:#aebbd0;
+    color:#aab6c8;
+
+    border-radius:12px;
+
+    cursor:pointer;
     text-align:left;
-    font-size:14px;
-    transition:.25s;
+
+    transition:.2s;
 }
 
-.menu button:hover,
+.menu button:hover{
+    background:rgba(255,255,255,.045);
+    color:white;
+}
+
 .menu button.active{
     color:white;
-    background:linear-gradient(90deg,rgba(0,229,160,.18),rgba(0,145,255,.12));
-    transform:translateX(4px);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37,99,235,.22),
+            rgba(34,211,238,.08)
+        );
+
+    border-color:rgba(34,211,238,.16);
 }
 
 .menu-icon{
-    width:27px;
-    display:inline-block;
-}
+    width:30px;
+    height:30px;
 
-.profile-mini{
-    position:absolute;
-    bottom:20px;
-    left:15px;
-    right:15px;
-    padding:13px;
-    border-radius:17px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.07);
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.avatar{
-    width:42px;
-    height:42px;
-    border-radius:50%;
     display:grid;
     place-items:center;
-    background:linear-gradient(135deg,#00e6a0,#008cff);
-    font-weight:bold;
-}
 
-/* MAIN */
-.main{
-    width:calc(100% - 260px);
-    margin-left:260px;
-    padding:25px;
-}
+    border-radius:9px;
 
-.topbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:25px;
-}
-
-.welcome h2{
-    font-size:28px;
-}
-
-.welcome p{
-    color:#91a0b8;
-    margin-top:6px;
-}
-
-.search{
-    width:280px;
-    padding:13px 17px;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,.08);
     background:rgba(255,255,255,.05);
-    color:white;
-    outline:none;
 }
 
-/* HERO */
-.hero{
-    min-height:270px;
-    padding:30px;
-    border-radius:28px;
-    position:relative;
-    overflow:hidden;
-    background:
-        linear-gradient(100deg,rgba(0,0,0,.85),rgba(0,20,35,.55)),
-        url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1400&q=80")
-        center/cover;
-    border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 25px 60px rgba(0,0,0,.3);
-    animation:fadeUp .7s ease;
-}
+.balance{
+    margin-top:25px;
 
-.hero:after{
-    content:"";
-    position:absolute;
-    width:260px;
-    height:260px;
-    right:-70px;
-    top:-100px;
-    border-radius:50%;
-    background:#00e6a0;
-    filter:blur(100px);
-    opacity:.2;
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    max-width:570px;
-}
-
-.badge{
-    display:inline-block;
-    padding:7px 12px;
-    border-radius:20px;
-    background:rgba(0,230,160,.13);
-    color:#00f0a8;
-    font-size:12px;
-    margin-bottom:15px;
-}
-
-.hero h1{
-    font-size:40px;
-    line-height:1.1;
-    margin-bottom:12px;
-}
-
-.hero p{
-    color:#c1ccda;
-    line-height:1.6;
-}
-
-.primary{
-    margin-top:22px;
-    padding:13px 20px;
-    border-radius:13px;
-    color:#03120f;
-    font-weight:bold;
-    background:linear-gradient(135deg,#00f5a0,#00b8ff);
-    box-shadow:0 10px 30px rgba(0,220,180,.22);
-    transition:.25s;
-}
-
-.primary:hover{
-    transform:translateY(-3px) scale(1.02);
-}
-
-/* STATS */
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin:20px 0;
-}
-
-.stat{
-    padding:19px;
-    border-radius:20px;
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.07);
-    transition:.3s;
-}
-
-.stat:hover{
-    transform:translateY(-5px);
-    border-color:rgba(0,230,160,.3);
-}
-
-.stat-icon{
-    font-size:24px;
-}
-
-.stat h3{
-    font-size:27px;
-    margin-top:9px;
-}
-
-.stat p{
-    color:#8f9db3;
-    font-size:13px;
-    margin-top:4px;
-}
-
-/* SECTIONS */
-.section-title{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin:28px 0 15px;
-}
-
-.section-title h2{
-    font-size:21px;
-}
-
-.section-title span{
-    color:#00e6a0;
-    font-size:13px;
-}
-
-/* CATEGORIES */
-.categories{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-}
-
-.category{
-    padding:11px 17px;
-    border-radius:13px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.07);
-    color:#b8c5d8;
-    transition:.25s;
-}
-
-.category:hover,
-.category.active{
-    color:white;
-    background:linear-gradient(135deg,#00c98d,#008cff);
-}
-
-/* WORKOUT GRID */
-.workout-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
-}
-
-.card{
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:21px;
-    overflow:hidden;
-    transition:.3s;
-    animation:fadeUp .5s ease;
-}
-
-.card:hover{
-    transform:translateY(-7px);
-    border-color:rgba(0,230,160,.3);
-    box-shadow:0 18px 40px rgba(0,0,0,.25);
-}
-
-.card-image{
-    height:175px;
-    position:relative;
-    overflow:hidden;
-}
-
-.card-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.5s;
-}
-
-.card:hover img{
-    transform:scale(1.08);
-}
-
-.heart{
-    position:absolute;
-    top:12px;
-    right:12px;
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    background:rgba(0,0,0,.5);
-    color:white;
-    font-size:18px;
-    backdrop-filter:blur(8px);
-}
-
-.heart.liked{
-    color:#ff4e7a;
-}
-
-.card-content{
     padding:15px;
+
+    border:1px solid rgba(34,211,238,.14);
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(34,211,238,.09),
+            rgba(37,99,235,.04)
+        );
 }
 
-.card-content h3{
-    margin-bottom:7px;
+.balance small{
+    color:var(--muted);
+    font-size:11px;
 }
 
-.card-content p{
-    color:#8998ae;
-    font-size:12px;
-}
-
-.card-bottom{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-top:14px;
-}
-
-.start-btn{
-    padding:9px 13px;
-    border-radius:10px;
-    color:white;
-    background:rgba(0,230,160,.12);
-    border:1px solid rgba(0,230,160,.2);
-}
-
-/* PROGRESS */
-.progress-box{
-    padding:20px;
-    border-radius:22px;
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(255,255,255,.07);
-}
-
-.progress-row{
-    margin-bottom:16px;
-}
-
-.progress-label{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:8px;
-    color:#bdc9d9;
-}
-
-.progress-bar{
-    height:9px;
-    background:#162235;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.progress-fill{
-    height:100%;
-    width:70%;
-    background:linear-gradient(90deg,#00e6a0,#008cff);
-    border-radius:20px;
-    animation:grow 1.2s ease;
-}
-
-/* MODAL */
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.72);
-    backdrop-filter:blur(9px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    z-index:100;
-}
-
-.modal.show{
-    display:flex;
-    animation:fade .25s ease;
-}
-
-.modal-box{
-    width:min(900px,100%);
-    max-height:90vh;
-    overflow:auto;
-    border-radius:27px;
-    background:#091323;
-    border:1px solid rgba(255,255,255,.1);
-    box-shadow:0 30px 80px rgba(0,0,0,.5);
-    animation:pop .3s ease;
-}
-
-.modal-top{
-    position:relative;
-}
-
-.modal-top img{
-    width:100%;
-    height:300px;
-    object-fit:cover;
-}
-
-.close{
-    position:absolute;
-    right:15px;
-    top:15px;
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    color:white;
-    background:rgba(0,0,0,.6);
+.balance strong{
+    display:block;
+    margin-top:7px;
     font-size:20px;
 }
 
-.modal-content{
-    padding:25px;
-}
-
-.modal-content h2{
-    font-size:29px;
-}
-
-.tags{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin:14px 0;
-}
-
-.tag{
-    padding:7px 11px;
-    border-radius:10px;
-    background:rgba(255,255,255,.06);
-    color:#aebbd0;
-    font-size:12px;
-}
-
-.steps{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-    margin-top:18px;
-}
-
-.step{
-    padding:15px;
-    border-radius:15px;
-    background:rgba(255,255,255,.045);
-}
-
-.step-number{
-    width:30px;
-    height:30px;
-    display:grid;
-    place-items:center;
-    border-radius:50%;
-    background:linear-gradient(135deg,#00e6a0,#008cff);
-    color:#03120f;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.timer{
-    margin-top:20px;
-    padding:20px;
-    border-radius:18px;
-    background:linear-gradient(135deg,rgba(0,230,160,.08),rgba(0,140,255,.08));
-    text-align:center;
-}
-
-.timer-number{
-    font-size:50px;
-    font-weight:bold;
-    letter-spacing:2px;
-}
-
-.timer-buttons{
-    display:flex;
-    justify-content:center;
-    gap:10px;
+.balance button{
+    width:100%;
     margin-top:12px;
+    padding:9px;
+
+    border:0;
+    border-radius:10px;
+
+    background:#173b68;
+    color:#dff7ff;
+
+    cursor:pointer;
 }
 
-.timer-buttons button{
-    padding:11px 17px;
-    border-radius:11px;
-    color:white;
-    background:rgba(255,255,255,.08);
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    margin-left:295px;
+    padding:110px 25px 40px;
+
+    min-height:100vh;
 }
 
-.timer-buttons .go{
-    background:linear-gradient(135deg,#00e6a0,#008cff);
-    color:#03120f;
-    font-weight:bold;
+.page{
+    max-width:1200px;
+    margin:auto;
 }
 
-/* LOGIN */
-.login-screen{
-    position:fixed;
-    inset:0;
-    z-index:300;
-    display:none;
-    place-items:center;
-    padding:20px;
-    background:
-        linear-gradient(rgba(3,7,18,.72),rgba(3,7,18,.9)),
-        url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80")
-        center/cover;
-}
-
-.login-screen.show{
-    display:grid;
-}
-
-.login-box{
-    width:min(430px,100%);
-    padding:32px;
-    border-radius:27px;
-    background:rgba(8,17,32,.78);
-    border:1px solid rgba(255,255,255,.1);
-    backdrop-filter:blur(22px);
-    box-shadow:0 30px 80px rgba(0,0,0,.5);
-    animation:pop .4s ease;
-}
-
-.login-logo{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.login-logo div{
-    width:65px;
-    height:65px;
-    display:grid;
-    place-items:center;
-    margin:auto auto 12px;
-    border-radius:20px;
-    background:linear-gradient(135deg,#00f5a0,#008cff);
-    font-size:31px;
-}
-
-.login-box h2{
-    text-align:center;
-    font-size:27px;
-}
-
-.login-box p{
-    text-align:center;
-    color:#8e9cb2;
-    margin:8px 0 22px;
-}
-
-.input{
-    width:100%;
-    padding:14px;
-    margin-bottom:12px;
-    border-radius:13px;
-    outline:none;
-    border:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.05);
-    color:white;
-}
-
-.full{
-    width:100%;
-    margin-top:5px;
-}
-
-/* MOBILE */
-.mobile-menu{
+.page-section{
     display:none;
 }
 
-@media(max-width:1100px){
-    .workout-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
+.page-section.active{
+    display:block;
+    animation:fade .35s ease;
 }
 
-@media(max-width:850px){
-    .sidebar{
-        width:76px;
-        padding:15px 9px;
-    }
-
-    .logo h1,
-    .menu button span,
-    .profile-mini .profile-text{
-        display:none;
-    }
-
-    .logo{
-        justify-content:center;
-    }
-
-    .menu button{
-        text-align:center;
-        padding:13px 5px;
-    }
-
-    .profile-mini{
-        justify-content:center;
-        padding:8px;
-    }
-
-    .main{
-        width:calc(100% - 76px);
-        margin-left:76px;
-        padding:17px;
-    }
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .workout-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .search{
-        width:200px;
-    }
-}
-
-@media(max-width:600px){
-    .topbar{
-        align-items:flex-start;
-        gap:10px;
-    }
-
-    .welcome h2{
-        font-size:22px;
-    }
-
-    .search{
-        width:145px;
-    }
-
-    .hero{
-        min-height:330px;
-        padding:22px;
-    }
-
-    .hero h1{
-        font-size:29px;
-    }
-
-    .workout-grid{
-        grid-template-columns:1fr;
-    }
-
-    .card-image{
-        height:210px;
-    }
-
-    .steps{
-        grid-template-columns:1fr;
-    }
-
-    .modal-top img{
-        height:220px;
-    }
-}
-
-@keyframes fadeUp{
+@keyframes fade{
     from{
         opacity:0;
-        transform:translateY(18px);
+        transform:translateY(8px);
     }
     to{
         opacity:1;
@@ -737,1096 +367,1397 @@ button{
     }
 }
 
-@keyframes fade{
-    from{opacity:0}
-    to{opacity:1}
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+    min-height:285px;
+
+    overflow:hidden;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    background:
+        radial-gradient(
+            circle at 85% 45%,
+            rgba(34,211,238,.20),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(18,37,69,.95),
+            rgba(7,14,26,.96)
+        );
+
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
 }
 
-@keyframes pop{
+.hero::after{
+    content:"";
+
+    position:absolute;
+    right:-100px;
+    top:-100px;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(34,211,238,.15);
+
+    box-shadow:
+        0 0 80px rgba(34,211,238,.08);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    max-width:600px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    padding:7px 11px;
+
+    border-radius:999px;
+
+    background:rgba(34,211,238,.09);
+    border:1px solid rgba(34,211,238,.16);
+
+    color:#9cefff;
+
+    font-size:11px;
+    font-weight:700;
+}
+
+.hero h1{
+    margin-top:18px;
+
+    font-size:clamp(30px,5vw,54px);
+    line-height:1.02;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:var(--cyan);
+}
+
+.hero p{
+    margin-top:15px;
+
+    color:#91a0b6;
+    font-size:14px;
+    line-height:1.7;
+
+    max-width:550px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:10px;
+    margin-top:22px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:12px 17px;
+
+    border:0;
+    border-radius:12px;
+
+    cursor:pointer;
+
+    color:white;
+    font-weight:700;
+
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    box-shadow:0 10px 30px rgba(37,99,235,.22);
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--line);
+}
+
+/* =========================
+   DIAMOND VISUAL
+========================= */
+
+.hero-diamond{
+    position:absolute;
+    right:8%;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:170px;
+    height:170px;
+
+    display:grid;
+    place-items:center;
+
+    font-size:100px;
+
+    filter:
+        drop-shadow(0 0 30px rgba(34,211,238,.5))
+        drop-shadow(0 0 70px rgba(37,99,235,.25));
+
+    animation:float 4s ease-in-out infinite;
+
+    z-index:2;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(-50%) translateY(0) rotate(-3deg);
+    }
+
+    50%{
+        transform:translateY(-50%) translateY(-14px) rotate(3deg);
+    }
+}
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+
+    margin:28px 0 14px;
+}
+
+.section-head h2{
+    font-size:21px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+.live{
+    display:flex;
+    align-items:center;
+    gap:7px;
+
+    color:#8ef5b0;
+    font-size:11px;
+}
+
+.live-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--green);
+
+    box-shadow:0 0 12px var(--green);
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+.products{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fill,minmax(175px,1fr));
+
+    gap:13px;
+}
+
+.card{
+    position:relative;
+
+    padding:17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17,29,50,.92),
+            rgba(8,15,27,.92)
+        );
+
+    border:1px solid var(--line);
+    border-radius:18px;
+
+    transition:.25s;
+
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+
+    border-color:rgba(34,211,238,.28);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.3),
+        0 0 30px rgba(34,211,238,.06);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.card-icon{
+    width:48px;
+    height:48px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    font-size:25px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(34,211,238,.16),
+            rgba(37,99,235,.05)
+        );
+}
+
+.tag{
+    padding:5px 7px;
+
+    border-radius:7px;
+
+    background:rgba(34,197,94,.09);
+    color:#78e8a0;
+
+    font-size:9px;
+    font-weight:800;
+}
+
+.card h3{
+    margin-top:15px;
+    font-size:16px;
+}
+
+.card .sub{
+    margin-top:5px;
+    color:var(--muted);
+    font-size:11px;
+}
+
+.price{
+    margin-top:17px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+}
+
+.price strong{
+    font-size:17px;
+}
+
+.price small{
+    color:var(--muted);
+    font-size:10px;
+}
+
+.buy{
+    width:100%;
+
+    margin-top:13px;
+    padding:10px;
+
+    border:1px solid rgba(34,211,238,.16);
+    border-radius:10px;
+
+    background:rgba(34,211,238,.08);
+    color:#b9f7ff;
+
+    font-weight:700;
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.buy:hover{
+    background:rgba(34,211,238,.16);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+
+    margin-top:20px;
+}
+
+.stat{
+    padding:18px;
+
+    border:1px solid var(--line);
+    border-radius:17px;
+
+    background:rgba(10,18,31,.72);
+}
+
+.stat-icon{
+    font-size:20px;
+}
+
+.stat span{
+    display:block;
+
+    margin-top:12px;
+
+    color:var(--muted);
+    font-size:11px;
+}
+
+.stat strong{
+    display:block;
+    margin-top:4px;
+    font-size:20px;
+}
+
+/* =========================
+   ORDERS
+========================= */
+
+.order-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.order{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px;
+
+    background:rgba(11,19,32,.8);
+    border:1px solid var(--line);
+    border-radius:15px;
+}
+
+.order-info{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.order-icon{
+    width:42px;
+    height:42px;
+
+    display:grid;
+    place-items:center;
+
+    background:rgba(37,99,235,.12);
+    border-radius:11px;
+}
+
+.order h4{
+    font-size:13px;
+}
+
+.order p{
+    margin-top:4px;
+    color:var(--muted);
+    font-size:10px;
+}
+
+.status{
+    padding:6px 9px;
+
+    border-radius:8px;
+
+    font-size:10px;
+    font-weight:700;
+}
+
+.status.done{
+    background:rgba(34,197,94,.09);
+    color:#6ee79a;
+}
+
+.status.wait{
+    background:rgba(234,179,8,.09);
+    color:#f5cf57;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+    max-width:700px;
+
+    padding:25px;
+
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:20px;
+}
+
+.profile-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 0;
+
+    border-bottom:1px solid var(--line);
+}
+
+.profile-row:last-child{
+    border-bottom:0;
+}
+
+.profile-row span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.profile-row strong{
+    font-size:13px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-bg{
+    position:fixed;
+    inset:0;
+
+    display:none;
+    place-items:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.68);
+    backdrop-filter:blur(10px);
+
+    z-index:3000;
+}
+
+.modal-bg.show{
+    display:grid;
+}
+
+.modal{
+    width:min(460px,100%);
+
+    padding:24px;
+
+    background:#0b1424;
+
+    border:1px solid var(--line);
+    border-radius:22px;
+
+    box-shadow:0 30px 100px rgba(0,0,0,.65);
+
+    animation:modalIn .25s ease;
+}
+
+@keyframes modalIn{
     from{
         opacity:0;
-        transform:scale(.94);
+        transform:scale(.95) translateY(10px);
     }
+
     to{
         opacity:1;
-        transform:scale(1);
+        transform:scale(1) translateY(0);
     }
 }
 
-@keyframes grow{
-    from{width:0}
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.close{
+    width:35px;
+    height:35px;
+
+    border:0;
+    border-radius:10px;
+
+    background:rgba(255,255,255,.05);
+    color:white;
+
+    cursor:pointer;
+    font-size:17px;
+}
+
+.modal-product{
+    margin-top:20px;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.04);
+}
+
+.form{
+    margin-top:15px;
+}
+
+.form label{
+    display:block;
+
+    margin:12px 0 6px;
+
+    color:#9aa8bb;
+    font-size:11px;
+}
+
+.form input{
+    width:100%;
+
+    padding:12px;
+
+    outline:0;
+
+    border:1px solid var(--line);
+    border-radius:11px;
+
+    background:rgba(255,255,255,.04);
+    color:white;
+}
+
+.form input:focus{
+    border-color:rgba(34,211,238,.35);
+}
+
+.form button{
+    width:100%;
+
+    margin-top:17px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.mobile-menu{
+    display:none;
+
+    position:fixed;
+    left:15px;
+    top:18px;
+
+    width:45px;
+    height:45px;
+
+    z-index:2000;
+
+    border:1px solid var(--line);
+    border-radius:12px;
+
+    background:rgba(9,16,29,.9);
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+@media(max-width:900px){
+
+    .panel{
+        transform:translateX(-120%);
+        transition:.3s;
+        z-index:1500;
+    }
+
+    .panel.open{
+        transform:translateX(0);
+    }
+
+    .mobile-menu{
+        display:block;
+    }
+
+    .main{
+        margin-left:0;
+        padding:100px 15px 30px;
+    }
+
+    .top{
+        left:70px;
+        transform:none;
+
+        width:calc(100% - 85px);
+    }
+
+    .hero{
+        padding:25px;
+    }
+
+    .hero-diamond{
+        opacity:.18;
+        right:0;
+    }
+}
+
+@media(max-width:600px){
+
+    .top{
+        height:56px;
+        top:12px;
+        padding:7px;
+    }
+
+    .logo-mini{
+        width:40px;
+        height:40px;
+    }
+
+    .search{
+        height:40px;
+    }
+
+    .search-btn{
+        width:40px;
+        height:40px;
+    }
+
+    .hero{
+        min-height:350px;
+        padding:22px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .card{
+        padding:13px;
+    }
+
+    .card-icon{
+        width:42px;
+        height:42px;
+    }
+
+    .section-head{
+        align-items:start;
+    }
+
+    .section-head h2{
+        font-size:18px;
+    }
+
+    .order{
+        align-items:flex-start;
+        gap:10px;
+    }
+}
+
+@media(max-width:390px){
+
+    .products{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    z-index:5000;
+
+    padding:13px 16px;
+
+    background:#0d1a2c;
+    border:1px solid rgba(34,211,238,.18);
+    border-radius:13px;
+
+    color:white;
+
+    font-size:12px;
+
+    box-shadow:var(--shadow);
+
+    transform:translateY(100px);
+    opacity:0;
+
+    transition:.3s;
+}
+
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div class="login-screen show" id="loginScreen">
-    <div class="login-box">
-        <div class="login-logo">
-            <div>🏋️</div>
-            <h2>SPORT TRAINER</h2>
-            <p>Ба машқи худ оғоз кун!</p>
-        </div>
+<!-- MOBILE MENU -->
+<button class="mobile-menu" onclick="toggleSidebar()">☰</button>
 
-        <input class="input" id="username" placeholder="Номи шумо">
-        <input class="input" type="email" placeholder="Email">
-        <input class="input" type="password" placeholder="Парол">
+<!-- TOP -->
+<div class="top">
 
-        <button class="primary full" onclick="enterSite()">
-            🚀 Даромадан
-        </button>
+    <div class="logo-mini">💎</div>
+
+    <div class="search">
+        <span>⌕</span>
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Ҷустуҷӯи diamond ё voucher..."
+            oninput="searchProducts()"
+        >
     </div>
+
+    <button class="search-btn" onclick="searchProducts()">
+        ↗
+    </button>
+
 </div>
 
-<div class="app">
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
+<!-- LEFT PANEL -->
+<aside class="panel" id="sidebar">
 
-    <div class="logo">
-        <div class="logo-icon">🏋️</div>
-        <h1>SPORT <span>TRAINER</span></h1>
+    <div class="brand">
+
+        <div class="brand-icon">
+            💎
+        </div>
+
+        <div>
+            <h2>DIAMOND X</h2>
+            <p>Game Store • Online</p>
+        </div>
+
     </div>
 
-    <nav class="menu">
 
-        <button class="active" onclick="showSection('home',this)">
-            <span class="menu-icon">🏠</span><span>Асосӣ</span>
+    <div class="menu-title">
+        Меню
+    </div>
+
+    <div class="menu">
+
+        <button class="active" onclick="showPage('home',this)">
+            <span class="menu-icon">⌂</span>
+            Home
         </button>
 
-        <button onclick="showSection('workouts',this)">
-            <span class="menu-icon">💪</span><span>Машқҳо</span>
+        <button onclick="showPage('diamonds',this)">
+            <span class="menu-icon">💎</span>
+            Diamonds
         </button>
 
-        <button onclick="showSection('plan',this)">
-            <span class="menu-icon">📅</span><span>Нақша</span>
+        <button onclick="showPage('vouchers',this)">
+            <span class="menu-icon">🎟️</span>
+            Vouchers
         </button>
 
-        <button onclick="showSection('timer',this)">
-            <span class="menu-icon">⏱️</span><span>Workout Timer</span>
+        <button onclick="showPage('orders',this)">
+            <span class="menu-icon">◫</span>
+            My Orders
         </button>
 
-        <button onclick="showSection('results',this)">
-            <span class="menu-icon">📊</span><span>Натиҷа</span>
+        <button onclick="showPage('profile',this)">
+            <span class="menu-icon">♙</span>
+            Profile
         </button>
 
-        <button onclick="showSection('progress',this)">
-            <span class="menu-icon">📈</span><span>Progress</span>
+    </div>
+
+
+    <div class="menu-title">
+        Ҳисоб
+    </div>
+
+    <div class="balance">
+
+        <small>Balance</small>
+
+        <strong id="balance">
+            0 TJS
+        </strong>
+
+        <button onclick="showToast('Функсияи пур кардани баланс баъдтар пайваст мешавад')">
+            + Add Balance
         </button>
 
-        <button onclick="showSection('favorites',this)">
-            <span class="menu-icon">❤️</span><span>Favorites</span>
-        </button>
-
-        <button onclick="showSection('history',this)">
-            <span class="menu-icon">🕘</span><span>History</span>
-        </button>
-
-        <button onclick="showSection('profile',this)">
-            <span class="menu-icon">👤</span><span>Profile</span>
-        </button>
-
-    </nav>
-
-    <div class="profile-mini">
-        <div class="avatar" id="miniAvatar">B</div>
-        <div class="profile-text">
-            <strong id="miniName">Benyamin</strong>
-            <small style="display:block;color:#7e8ca2;margin-top:3px">Level 5</small>
-        </div>
     </div>
 
 </aside>
 
+
 <!-- MAIN -->
 <main class="main">
 
-    <div class="topbar">
-        <div class="welcome">
-            <h2>Салом, <span id="welcomeName">Benyamin</span> 👋</h2>
-            <p>Имрӯз худро қавитар кун.</p>
-        </div>
+<div class="page">
 
-        <input
-            class="search"
-            id="searchInput"
-            placeholder="🔍 Ҷустуҷӯи машқ..."
-            oninput="searchWorkout()"
-        >
-    </div>
 
-    <!-- HOME -->
-    <section id="home">
+<!-- ================= HOME ================= -->
 
-        <div class="hero">
-            <div class="hero-content">
-                <span class="badge">🔥 TODAY'S WORKOUT</span>
-                <h1>Ҳар рӯз 1% беҳтар шав.</h1>
-                <p>
-                    Машқи имрӯзаро интихоб кун, таймерро оғоз кун
-                    ва натиҷаи худро сабт намо.
-                </p>
-                <button class="primary" onclick="showSectionById('workouts')">
-                    💪 Оғози машқ
-                </button>
-            </div>
-        </div>
+<section class="page-section active" id="home">
 
-        <div class="stats">
+    <div class="hero">
 
-            <div class="stat">
-                <div class="stat-icon">🔥</div>
-                <h3>7</h3>
-                <p>Рӯз Streak</p>
+        <div class="hero-content">
+
+            <div class="badge">
+                <span>●</span>
+                SYSTEM ONLINE
             </div>
 
-            <div class="stat">
-                <div class="stat-icon">🏋️</div>
-                <h3>24</h3>
-                <p>Машқҳо</p>
-            </div>
+            <h1>
+                Game <span>Diamonds</span><br>
+                & Vouchers
+            </h1>
 
-            <div class="stat">
-                <div class="stat-icon">⏱️</div>
-                <h3>186</h3>
-                <p>Дақиқа</p>
-            </div>
-
-            <div class="stat">
-                <div class="stat-icon">🏆</div>
-                <h3>12</h3>
-                <p>Achievement</p>
-            </div>
-
-        </div>
-
-        <div class="section-title">
-            <h2>Машқҳои тавсияшаванда</h2>
-            <span>Ҳамаашро бин →</span>
-        </div>
-
-        <div class="workout-grid" id="homeWorkouts"></div>
-
-    </section>
-
-    <!-- WORKOUTS -->
-    <section id="workouts" style="display:none">
-
-        <div class="section-title">
-            <h2>💪 Ҳамаи машқҳо</h2>
-            <span id="workoutCount"></span>
-        </div>
-
-        <div class="categories">
-            <button class="category active" onclick="filterCategory('all',this)">Ҳама</button>
-            <button class="category" onclick="filterCategory('arms',this)">💪 Даст</button>
-            <button class="category" onclick="filterCategory('legs',this)">🦵 Пой</button>
-            <button class="category" onclick="filterCategory('abs',this)">🔥 Шикам</button>
-            <button class="category" onclick="filterCategory('chest',this)">🏋️ Сина</button>
-            <button class="category" onclick="filterCategory('back',this)">🔙 Пушт</button>
-            <button class="category" onclick="filterCategory('cardio',this)">🏃 Кардио</button>
-            <button class="category" onclick="filterCategory('stretch',this)">🧘 Гармкунӣ</button>
-        </div>
-
-        <div class="workout-grid" id="workoutGrid" style="margin-top:18px"></div>
-
-    </section>
-
-    <!-- PLAN -->
-    <section id="plan" style="display:none">
-
-        <div class="section-title">
-            <h2>📅 Нақшаи ҳафта</h2>
-        </div>
-
-        <div class="progress-box">
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>Душанбе — Даст</span>
-                    <b>✓</b>
-                </div>
-                <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
-            </div>
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>Сешанбе — Пой</span>
-                    <b>✓</b>
-                </div>
-                <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
-            </div>
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>Чоршанбе — Шикам</span>
-                    <b>✓</b>
-                </div>
-                <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
-            </div>
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>Панҷшанбе — Сина</span>
-                    <b>→</b>
-                </div>
-                <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
-            </div>
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>Ҷумъа — Кардио</span>
-                    <b>○</b>
-                </div>
-                <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>Шанбе — Full Body</span>
-                    <b>○</b>
-                </div>
-                <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>Якшанбе — Rest</span>
-                    <b>😴</b>
-                </div>
-                <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- TIMER -->
-    <section id="timer" style="display:none">
-
-        <div class="section-title">
-            <h2>⏱️ Workout Timer</h2>
-        </div>
-
-        <div class="timer">
-            <div class="timer-number" id="mainTimer">00:00</div>
-
-            <div class="timer-buttons">
-                <button class="go" onclick="startTimer()">▶ Start</button>
-                <button onclick="pauseTimer()">⏸ Pause</button>
-                <button onclick="resetTimer()">↻ Reset</button>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- RESULTS -->
-    <section id="results" style="display:none">
-
-        <div class="section-title">
-            <h2>📊 Натиҷаи ту</h2>
-        </div>
-
-        <div class="stats">
-
-            <div class="stat">
-                <div class="stat-icon">🏋️</div>
-                <h3>24</h3>
-                <p>Workout</p>
-            </div>
-
-            <div class="stat">
-                <div class="stat-icon">🔢</div>
-                <h3>486</h3>
-                <p>Reps</p>
-            </div>
-
-            <div class="stat">
-                <div class="stat-icon">⏱️</div>
-                <h3>186</h3>
-                <p>Minutes</p>
-            </div>
-
-            <div class="stat">
-                <div class="stat-icon">🔥</div>
-                <h3>7</h3>
-                <p>Streak</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- PROGRESS -->
-    <section id="progress" style="display:none">
-
-        <div class="section-title">
-            <h2>📈 Пешрафти ҳафтаина</h2>
-        </div>
-
-        <div class="progress-box">
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>Машқҳо</span>
-                    <b>75%</b>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width:75%"></div>
-                </div>
-            </div>
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>Reps</span>
-                    <b>62%</b>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width:62%"></div>
-                </div>
-            </div>
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>Вақт</span>
-                    <b>84%</b>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width:84%"></div>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- FAVORITES -->
-    <section id="favorites" style="display:none">
-
-        <div class="section-title">
-            <h2>❤️ Машқҳои дӯстдошта</h2>
-        </div>
-
-        <div class="workout-grid" id="favoriteGrid"></div>
-
-    </section>
-
-    <!-- HISTORY -->
-    <section id="history" style="display:none">
-
-        <div class="section-title">
-            <h2>🕘 Таърихи машқҳо</h2>
-        </div>
-
-        <div class="progress-box">
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>🔥 Push Up</span>
-                    <b>Имрӯз</b>
-                </div>
-            </div>
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>🦵 Squat</span>
-                    <b>Дирӯз</b>
-                </div>
-            </div>
-
-            <div class="progress-row">
-                <div class="progress-label">
-                    <span>💪 Biceps Curl</span>
-                    <b>2 рӯз пеш</b>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- PROFILE -->
-    <section id="profile" style="display:none">
-
-        <div class="section-title">
-            <h2>👤 Профили ман</h2>
-        </div>
-
-        <div class="progress-box" style="text-align:center">
-
-            <div class="avatar" style="width:85px;height:85px;font-size:30px;margin:auto">
-                B
-            </div>
-
-            <h2 style="margin-top:15px" id="profileName">Benyamin</h2>
-
-            <p style="color:#8d9bb0;margin-top:6px">
-                Level 5 • SPORT TRAINER
+            <p>
+                Хариди зуд ва осони game diamonds ва vouchers.
+                Product интихоб кунед, Player ID ворид кунед
+                ва фармоиш диҳед.
             </p>
 
-            <div class="stats">
+            <div class="hero-actions">
 
-                <div class="stat">
-                    <h3>7</h3>
-                    <p>Streak</p>
-                </div>
+                <button
+                    class="btn btn-primary"
+                    onclick="showPageById('diamonds')"
+                >
+                    💎 Харидани Diamonds
+                </button>
 
-                <div class="stat">
-                    <h3>24</h3>
-                    <p>Workout</p>
-                </div>
-
-                <div class="stat">
-                    <h3>486</h3>
-                    <p>Reps</p>
-                </div>
-
-                <div class="stat">
-                    <h3>12</h3>
-                    <p>Medals</p>
-                </div>
+                <button
+                    class="btn btn-secondary"
+                    onclick="showPageById('vouchers')"
+                >
+                    🎟️ Vouchers
+                </button>
 
             </div>
 
         </div>
 
-    </section>
 
-</main>
-</div>
-
-<!-- WORKOUT MODAL -->
-<div class="modal" id="workoutModal">
-
-    <div class="modal-box">
-
-        <div class="modal-top">
-            <img id="modalImage" src="" alt="Workout">
-
-            <button class="close" onclick="closeModal()">×</button>
+        <div class="hero-diamond">
+            💎
         </div>
 
-        <div class="modal-content">
+    </div>
 
-            <h2 id="modalTitle"></h2>
 
-            <div class="tags">
-                <span class="tag" id="modalCategory"></span>
-                <span class="tag" id="modalLevel"></span>
-                <span class="tag" id="modalTime"></span>
-            </div>
+    <div class="stats">
 
-            <p id="modalDescription" style="color:#9aa8bc;line-height:1.7"></p>
+        <div class="stat">
+            <div class="stat-icon">⚡</div>
+            <span>Delivery</span>
+            <strong>Fast</strong>
+        </div>
 
-            <h3 style="margin-top:22px">📋 Тарзи иҷро</h3>
+        <div class="stat">
+            <div class="stat-icon">🔐</div>
+            <span>Security</span>
+            <strong>Protected</strong>
+        </div>
 
-            <div class="steps" id="steps"></div>
+        <div class="stat">
+            <div class="stat-icon">🟢</div>
+            <span>Service</span>
+            <strong>Online</strong>
+        </div>
 
-            <div class="timer">
+    </div>
 
-                <div style="color:#8d9bb0;margin-bottom:6px">
-                    Workout Timer
+
+    <div class="section-head">
+
+        <div>
+            <h2>Popular Products</h2>
+            <p>Маҳсулотҳои маъмул</p>
+        </div>
+
+        <div class="live">
+            <span class="live-dot"></span>
+            Online
+        </div>
+
+    </div>
+
+
+    <div class="products" id="homeProducts"></div>
+
+</section>
+
+
+<!-- ================= DIAMONDS ================= -->
+
+<section class="page-section" id="diamonds">
+
+    <div class="section-head">
+
+        <div>
+            <h2>💎 Diamonds</h2>
+            <p>Diamond pack интихоб кунед</p>
+        </div>
+
+    </div>
+
+    <div class="products" id="diamondProducts"></div>
+
+</section>
+
+
+<!-- ================= VOUCHERS ================= -->
+
+<section class="page-section" id="vouchers">
+
+    <div class="section-head">
+
+        <div>
+            <h2>🎟️ Vouchers</h2>
+            <p>Voucher code ва pack-ҳо</p>
+        </div>
+
+    </div>
+
+    <div class="products" id="voucherProducts"></div>
+
+</section>
+
+
+<!-- ================= ORDERS ================= -->
+
+<section class="page-section" id="orders">
+
+    <div class="section-head">
+
+        <div>
+            <h2>◫ My Orders</h2>
+            <p>Таърихи фармоишҳо</p>
+        </div>
+
+    </div>
+
+    <div class="order-list" id="orderList">
+
+        <div class="order">
+
+            <div class="order-info">
+
+                <div class="order-icon">
+                    💎
                 </div>
 
-                <div class="timer-number" id="modalTimer">00:00</div>
-
-                <div class="timer-buttons">
-                    <button class="go" onclick="startModalTimer()">▶ Start</button>
-                    <button onclick="pauseModalTimer()">⏸ Pause</button>
-                    <button onclick="resetModalTimer()">↻ Reset</button>
+                <div>
+                    <h4>Ҳоло фармоиш нест</h4>
+                    <p>Фармоиши аввалини худро созед</p>
                 </div>
 
             </div>
+
+            <span class="status wait">
+                Empty
+            </span>
 
         </div>
 
     </div>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section class="page-section" id="profile">
+
+    <div class="section-head">
+
+        <div>
+            <h2>♙ Profile</h2>
+            <p>Маълумоти аккаунт</p>
+        </div>
+
+    </div>
+
+
+    <div class="profile">
+
+        <div class="profile-row">
+            <span>Username</span>
+            <strong>Guest User</strong>
+        </div>
+
+        <div class="profile-row">
+            <span>Status</span>
+            <strong style="color:#67e8f9">Online</strong>
+        </div>
+
+        <div class="profile-row">
+            <span>Orders</span>
+            <strong id="profileOrders">0</strong>
+        </div>
+
+        <div class="profile-row">
+            <span>Balance</span>
+            <strong>0 TJS</strong>
+        </div>
+
+    </div>
+
+</section>
+
 </div>
+</main>
 
-<script>
 
-const workouts = [
+<!-- ================= MODAL ================= -->
 
-{
-    id:1,
-    name:"Push Up",
-    category:"chest",
-    image:"https://images.unsplash.com/photo-1598971639058-fab3c3109a00?auto=format&fit=crop&w=900&q=80",
-    level:"Beginner",
-    time:"10 min",
-    description:"Машқи классикӣ барои сина, китф ва дастҳо.",
-    steps:[
-        "Дастҳоро каме васеътар аз китф гузор.",
-        "Баданро рост нигоҳ дор.",
-        "Оҳиста ба поён фуро.",
-        "Бо қувваи дастҳо боло баро."
-    ]
-},
+<div class="modal-bg" id="modal">
 
-{
-    id:2,
-    name:"Squat",
-    category:"legs",
-    image:"https://images.unsplash.com/photo-1566241142559-40e1dab266c6?auto=format&fit=crop&w=900&q=80",
-    level:"Beginner",
-    time:"12 min",
-    description:"Машқи асосӣ барои пой ва мушакҳои поёни бадан.",
-    steps:[
-        "Пойҳоро ба паҳнои китф гузор.",
-        "Зонуҳоро хам карда поён фуро.",
-        "Пуштро рост нигоҳ дор.",
-        "Ба ҳолати аввал баргард."
-    ]
-},
+    <div class="modal">
 
-{
-    id:3,
-    name:"Biceps Curl",
-    category:"arms",
-    image:"https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80",
-    level:"Beginner",
-    time:"10 min",
-    description:"Барои мушакҳои пеши даст бо гантел.",
-    steps:[
-        "Гантелҳоро дар ду даст гир.",
-        "Оринҷҳоро ба бадан наздик нигоҳ дор.",
-        "Дастҳоро боло бардор.",
-        "Оҳиста ба поён фурор."
-    ]
-},
+        <div class="modal-head">
 
-{
-    id:4,
-    name:"Plank",
-    category:"abs",
-    image:"https://images.unsplash.com/photo-1566241142559-40e1dab266c6?auto=format&fit=crop&w=900&q=80",
-    level:"Beginner",
-    time:"5 min",
-    description:"Машқи статикӣ барои core ва шикам.",
-    steps:[
-        "Ба ҳолати такя дар оринҷҳо даро.",
-        "Баданро рост нигоҳ дор.",
-        "Шикамро каме дарун каш.",
-        "Ҳолатро нигоҳ дор."
-    ]
-},
+            <div>
+                <h2>Order Product</h2>
+                <p style="color:#718097;font-size:11px;margin-top:5px">
+                    Маълумоти фармоишро ворид кунед
+                </p>
+            </div>
 
-{
-    id:5,
-    name:"Lunges",
-    category:"legs",
-    image:"https://images.unsplash.com/photo-1434608519344-49d77a699ded?auto=format&fit=crop&w=900&q=80",
-    level:"Intermediate",
-    time:"12 min",
-    description:"Барои пойҳо ва нигоҳ доштани баланс.",
-    steps:[
-        "Як пояшро ба пеш гузор.",
-        "Ҳар ду зонуҳоро хам кун.",
-        "Бо пойи пеш ба боло баргард.",
-        "Пойро иваз кун."
-    ]
-},
-
-{
-    id:6,
-    name:"Jumping Jacks",
-    category:"cardio",
-    image:"https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=80",
-    level:"Beginner",
-    time:"8 min",
-    description:"Машқи кардио барои гарм кардани тамоми бадан.",
-    steps:[
-        "Рост ист.",
-        "Бо ҷаҳиш пойҳоро кушо.",
-        "Ҳамзамон дастҳоро боло бардор.",
-        "Ба ҳолати аввал баргард."
-    ]
-},
-
-{
-    id:7,
-    name:"Shoulder Press",
-    category:"arms",
-    image:"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80",
-    level:"Intermediate",
-    time:"10 min",
-    description:"Машқ барои китф ва дастҳо.",
-    steps:[
-        "Гантелҳоро дар сатҳи китф гир.",
-        "Пуштро рост нигоҳ дор.",
-        "Гантелҳоро боло тела деҳ.",
-        "Оҳиста поён фарор."
-    ]
-},
-
-{
-    id:8,
-    name:"Mountain Climbers",
-    category:"abs",
-    image:"https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?auto=format&fit=crop&w=900&q=80",
-    level:"Advanced",
-    time:"8 min",
-    description:"Машқи динамикӣ барои core ва cardio.",
-    steps:[
-        "Ба ҳолати push-up даро.",
-        "Як зону ба сина биёр.",
-        "Пойро баргардон.",
-        "Пойи дигарро зуд иваз кун."
-    ]
-},
-
-{
-    id:9,
-    name:"Dumbbell Row",
-    category:"back",
-    image:"https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=80",
-    level:"Intermediate",
-    time:"10 min",
-    description:"Барои пушт ва мушакҳои даст.",
-    steps:[
-        "Каме ба пеш хам шав.",
-        "Гантелро поён нигоҳ дор.",
-        "Оринҷро ба қафо каш.",
-        "Оҳиста гантелро поён фарор."
-    ]
-},
-
-{
-    id:10,
-    name:"High Knees",
-    category:"cardio",
-    image:"https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
-    level:"Beginner",
-    time:"6 min",
-    description:"Машқи хуб барои гармкунӣ ва cardio.",
-    steps:[
-        "Рост ист.",
-        "Як зону ба баландӣ бардор.",
-        "Пойро иваз кун.",
-        "Ҳаракатро ритмнок идома деҳ."
-    ]
-},
-
-{
-    id:11,
-    name:"Glute Bridge",
-    category:"legs",
-    image:"https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?auto=format&fit=crop&w=900&q=80",
-    level:"Beginner",
-    time:"8 min",
-    description:"Машқ барои қисми поёни бадан.",
-    steps:[
-        "Ба пушт хоб.",
-        "Зонуҳоро хам кун.",
-        "Косро боло бардор.",
-        "Оҳиста поён фарор."
-    ]
-},
-
-{
-    id:12,
-    name:"Leg Raise",
-    category:"abs",
-    image:"https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=900&q=80",
-    level:"Intermediate",
-    time:"8 min",
-    description:"Барои мушакҳои шикам.",
-    steps:[
-        "Ба пушт хоб.",
-        "Пойҳоро рост нигоҳ дор.",
-        "Пойҳоро боло бардор.",
-        "Оҳиста поён фарор."
-    ]
-},
-
-{
-    id:13,
-    name:"Triceps Extension",
-    category:"arms",
-    image:"https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=80",
-    level:"Intermediate",
-    time:"9 min",
-    description:"Машқ барои қисми пушти даст.",
-    steps:[
-        "Гантелро аз болои сар нигоҳ дор.",
-        "Оринҷҳоро ба пеш нигоҳ дор.",
-        "Гантелро паси сар поён фарор.",
-        "Боз боло бардор."
-    ]
-},
-
-{
-    id:14,
-    name:"Arm Stretch",
-    category:"stretch",
-    image:"https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
-    level:"Easy",
-    time:"5 min",
-    description:"Гармкунӣ ва кашиши мушакҳои даст.",
-    steps:[
-        "Дастҳоро ба пеш дароз кун.",
-        "Як дастатро ба сина наздик кун.",
-        "Бо дасти дигар нарм нигоҳ дор.",
-        "Тарафи дигарро такрор кун."
-    ]
-},
-
-{
-    id:15,
-    name:"Leg Stretch",
-    category:"stretch",
-    image:"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80",
-    level:"Easy",
-    time:"5 min",
-    description:"Кашиши пойҳо баъд аз машқ.",
-    steps:[
-        "Рост ист.",
-        "Як пойро каме пеш гузор.",
-        "Оҳиста ба пеш хам шав.",
-        "Пойро иваз кун."
-    ]
-},
-
-{
-    id:16,
-    name:"Burpees",
-    category:"cardio",
-    image:"https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=900&q=80",
-    level:"Advanced",
-    time:"10 min",
-    description:"Машқи пурқувват барои тамоми бадан.",
-    steps:[
-        "Рост ист.",
-        "Ба ҳолати squat поён шав.",
-        "Пойҳоро ба қафо фирист.",
-        "Боз боло бархез."
-    ]
-}
-
-];
-
-let favorites = [];
-let currentCategory = "all";
-
-function cardHTML(w){
-
-    const liked = favorites.includes(w.id);
-
-    return `
-    <div class="card workout-card" data-name="${w.name.toLowerCase()}">
-
-        <div class="card-image">
-
-            <img src="${w.image}" alt="${w.name}">
-
-            <button
-                class="heart ${liked ? 'liked':''}"
-                onclick="toggleFavorite(event,${w.id})">
-                ${liked ? '♥':'♡'}
+            <button class="close" onclick="closeModal()">
+                ×
             </button>
 
         </div>
 
-        <div class="card-content">
 
-            <h3>${w.name}</h3>
+        <div class="modal-product">
 
-            <p>${w.description}</p>
+            <strong id="modalProduct">
+                Diamond
+            </strong>
 
-            <div class="card-bottom">
-                <span style="color:#00e6a0;font-size:12px">
-                    ${w.time}
-                </span>
-
-                <button class="start-btn"
-                    onclick="openWorkout(${w.id})">
-                    Оғоз →
-                </button>
+            <div
+                id="modalPrice"
+                style="margin-top:6px;color:#67e8f9"
+            >
+                0 TJS
             </div>
 
         </div>
 
+
+        <div class="form">
+
+            <label>
+                Player ID
+            </label>
+
+            <input
+                id="playerId"
+                placeholder="Масалан: 123456789"
+            >
+
+
+            <label>
+                Player Name
+            </label>
+
+            <input
+                id="playerName"
+                placeholder="Номи бозигар"
+            >
+
+
+            <label>
+                Телефон
+            </label>
+
+            <input
+                id="phone"
+                placeholder="+992 XX XXX XX XX"
+            >
+
+
+            <button
+                class="btn btn-primary"
+                onclick="confirmOrder()"
+            >
+                ⚡ Confirm Order
+            </button>
+
+        </div>
+
     </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+/* =========================
+   PRODUCTS
+========================= */
+
+const diamonds = [
+
+    {
+        name:"100 Diamonds",
+        sub:"Diamond Pack",
+        price:12,
+        icon:"💎",
+        tag:"POPULAR"
+    },
+
+    {
+        name:"310 Diamonds",
+        sub:"Diamond Pack",
+        price:35,
+        icon:"💎",
+        tag:""
+    },
+
+    {
+        name:"520 Diamonds",
+        sub:"Diamond Pack",
+        price:55,
+        icon:"💎",
+        tag:"HOT"
+    },
+
+    {
+        name:"1060 Diamonds",
+        sub:"Diamond Pack",
+        price:105,
+        icon:"💎",
+        tag:"POPULAR"
+    },
+
+    {
+        name:"2180 Diamonds",
+        sub:"Diamond Pack",
+        price:205,
+        icon:"💎",
+        tag:""
+    },
+
+    {
+        name:"5600 Diamonds",
+        sub:"Diamond Pack",
+        price:510,
+        icon:"💎",
+        tag:"BEST"
+    }
+
+];
+
+
+const vouchers = [
+
+    {
+        name:"100 Voucher",
+        sub:"Game Voucher",
+        price:10,
+        icon:"🎟️",
+        tag:""
+    },
+
+    {
+        name:"500 Voucher",
+        sub:"Game Voucher",
+        price:48,
+        icon:"🎟️",
+        tag:"HOT"
+    },
+
+    {
+        name:"1000 Voucher",
+        sub:"Game Voucher",
+        price:92,
+        icon:"🎟️",
+        tag:"POPULAR"
+    }
+
+];
+
+
+let orders = [];
+
+let selectedProduct = null;
+
+
+/* =========================
+   CREATE CARD
+========================= */
+
+function productCard(product){
+
+    return `
+
+        <div
+            class="card"
+            data-search="${product.name.toLowerCase()}"
+        >
+
+            <div class="card-top">
+
+                <div class="card-icon">
+                    ${product.icon}
+                </div>
+
+                ${
+                    product.tag
+                    ?
+                    `<div class="tag">${product.tag}</div>`
+                    :
+                    ""
+                }
+
+            </div>
+
+
+            <h3>
+                ${product.name}
+            </h3>
+
+            <div class="sub">
+                ${product.sub}
+            </div>
+
+
+            <div class="price">
+
+                <strong>
+                    ${product.price} TJS
+                </strong>
+
+                <small>
+                    instant
+                </small>
+
+            </div>
+
+
+            <button
+                class="buy"
+                onclick='openOrder(${JSON.stringify(product)})'
+            >
+                Buy Now →
+            </button>
+
+        </div>
+
     `;
 }
 
-function renderWorkouts(){
 
-    const grid = document.getElementById("workoutGrid");
+/* =========================
+   RENDER
+========================= */
 
-    let list = workouts.filter(w =>
-        currentCategory === "all" ||
-        w.category === currentCategory
-    );
+function renderProducts(){
 
-    document.getElementById("workoutCount").textContent =
-        list.length + " машқ";
+    document.getElementById("homeProducts").innerHTML =
+        diamonds.slice(0,4).map(productCard).join("");
 
-    grid.innerHTML = list.map(cardHTML).join("");
+    document.getElementById("diamondProducts").innerHTML =
+        diamonds.map(productCard).join("");
+
+    document.getElementById("voucherProducts").innerHTML =
+        vouchers.map(productCard).join("");
 }
 
-function renderHome(){
+renderProducts();
 
-    document.getElementById("homeWorkouts").innerHTML =
-        workouts.slice(0,4).map(cardHTML).join("");
 
-}
+/* =========================
+   PAGE NAVIGATION
+========================= */
 
-function renderFavorites(){
+function showPage(page,button){
 
-    const grid = document.getElementById("favoriteGrid");
-
-    const list = workouts.filter(w =>
-        favorites.includes(w.id)
-    );
-
-    if(list.length === 0){
-
-        grid.innerHTML = `
-            <div class="progress-box" style="grid-column:1/-1;text-align:center">
-                <div style="font-size:45px">❤️</div>
-                <h3 style="margin-top:10px">Ҳоло Favorite нест</h3>
-                <p style="color:#8998ae;margin-top:7px">
-                    Ба дилчаи ❤️ машқ пахш кун.
-                </p>
-            </div>
-        `;
-
-        return;
-    }
-
-    grid.innerHTML = list.map(cardHTML).join("");
-}
-
-function toggleFavorite(event,id){
-
-    event.stopPropagation();
-
-    if(favorites.includes(id)){
-        favorites = favorites.filter(x => x !== id);
-    }else{
-        favorites.push(id);
-    }
-
-    renderWorkouts();
-    renderHome();
-    renderFavorites();
-}
-
-function filterCategory(category,button){
-
-    currentCategory = category;
-
-    document.querySelectorAll(".category")
-        .forEach(x => x.classList.remove("active"));
-
-    button.classList.add("active");
-
-    renderWorkouts();
-}
-
-function searchWorkout(){
-
-    const text =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase();
-
-    document.querySelectorAll(".workout-card")
-        .forEach(card => {
-
-            const name = card.dataset.name;
-
-            card.style.display =
-                name.includes(text) ? "" : "none";
-
+    document
+        .querySelectorAll(".page-section")
+        .forEach(section=>{
+            section.classList.remove("active");
         });
-}
 
-function openWorkout(id){
-
-    const w = workouts.find(x => x.id === id);
-
-    if(!w) return;
-
-    document.getElementById("modalImage").src = w.image;
-    document.getElementById("modalTitle").textContent = w.name;
-    document.getElementById("modalCategory").textContent = categoryName(w.category);
-    document.getElementById("modalLevel").textContent = "⭐ " + w.level;
-    document.getElementById("modalTime").textContent = "⏱ " + w.time;
-    document.getElementById("modalDescription").textContent = w.description;
-
-    document.getElementById("steps").innerHTML =
-        w.steps.map((step,index) => `
-            <div class="step">
-                <div class="step-number">${index+1}</div>
-                <p style="color:#b5c2d3;line-height:1.5">${step}</p>
-            </div>
-        `).join("");
-
-    resetModalTimer();
-
-    document.getElementById("workoutModal")
-        .classList.add("show");
-}
-
-function categoryName(cat){
-
-    const names = {
-        arms:"💪 Даст",
-        legs:"🦵 Пой",
-        abs:"🔥 Шикам",
-        chest:"🏋️ Сина",
-        back:"🔙 Пушт",
-        cardio:"🏃 Кардио",
-        stretch:"🧘 Гармкунӣ"
-    };
-
-    return names[cat] || "Workout";
-}
-
-function closeModal(){
-
-    document.getElementById("workoutModal")
-        .classList.remove("show");
-
-    pauseModalTimer();
-}
-
-let timerSeconds = 0;
-let timerInterval = null;
-
-function updateTimer(){
-
-    const min =
-        String(Math.floor(timerSeconds / 60)).padStart(2,"0");
-
-    const sec =
-        String(timerSeconds % 60).padStart(2,"0");
-
-    document.getElementById("mainTimer").textContent =
-        `${min}:${sec}`;
-}
-
-function startTimer(){
-
-    if(timerInterval) return;
-
-    timerInterval = setInterval(() => {
-
-        timerSeconds++;
-
-        updateTimer();
-
-    },1000);
-}
-
-function pauseTimer(){
-
-    clearInterval(timerInterval);
-    timerInterval = null;
-}
-
-function resetTimer(){
-
-    pauseTimer();
-
-    timerSeconds = 0;
-
-    updateTimer();
-}
-
-/* MODAL TIMER */
-
-let modalSeconds = 0;
-let modalInterval = null;
-
-function updateModalTimer(){
-
-    const min =
-        String(Math.floor(modalSeconds / 60)).padStart(2,"0");
-
-    const sec =
-        String(modalSeconds % 60).padStart(2,"0");
-
-    document.getElementById("modalTimer").textContent =
-        `${min}:${sec}`;
-}
-
-function startModalTimer(){
-
-    if(modalInterval) return;
-
-    modalInterval = setInterval(() => {
-
-        modalSeconds++;
-
-        updateModalTimer();
-
-    },1000);
-}
-
-function pauseModalTimer(){
-
-    clearInterval(modalInterval);
-    modalInterval = null;
-}
-
-function resetModalTimer(){
-
-    pauseModalTimer();
-
-    modalSeconds = 0;
-
-    updateModalTimer();
-}
-
-function enterSite(){
-
-    const name =
-        document.getElementById("username").value.trim();
-
-    if(name){
-
-        document.getElementById("welcomeName").textContent = name;
-        document.getElementById("miniName").textContent = name;
-        document.getElementById("profileName").textContent = name;
-        document.getElementById("miniAvatar").textContent =
-            name.charAt(0).toUpperCase();
-
-    }
-
-    document.getElementById("loginScreen")
-        .classList.remove("show");
-}
-
-function showSection(section,button){
-
-    document.querySelectorAll("main section")
-        .forEach(s => s.style.display = "none");
-
-    const target = document.getElementById(section);
+    const target = document.getElementById(page);
 
     if(target){
-        target.style.display = "block";
+        target.classList.add("active");
     }
 
-    document.querySelectorAll(".menu button")
-        .forEach(x => x.classList.remove("active"));
+
+    document
+        .querySelectorAll(".menu button")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
 
     if(button){
         button.classList.add("active");
     }
 
-    if(section === "workouts"){
-        renderWorkouts();
-    }
 
-    if(section === "favorites"){
-        renderFavorites();
-    }
+    document
+        .getElementById("sidebar")
+        .classList.remove("open");
 
     window.scrollTo({
         top:0,
@@ -1834,44 +1765,324 @@ function showSection(section,button){
     });
 }
 
-function showSectionById(section){
 
-    document.querySelectorAll("main section")
-        .forEach(s => s.style.display = "none");
+function showPageById(page){
 
-    document.getElementById(section).style.display = "block";
+    const button = [...document.querySelectorAll(".menu button")]
+        .find(btn =>
+            btn.getAttribute("onclick")?.includes(`'${page}'`)
+        );
 
-    document.querySelectorAll(".menu button")
-        .forEach(x => x.classList.remove("active"));
-
-    document.querySelectorAll(".menu button")[1]
-        .classList.add("active");
-
-    renderWorkouts();
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    showPage(page,button);
 }
 
-document.getElementById("workoutModal")
-.addEventListener("click",function(e){
 
-    if(e.target === this){
-        closeModal();
+/* =========================
+   SIDEBAR
+========================= */
+
+function toggleSidebar(){
+
+    document
+        .getElementById("sidebar")
+        .classList.toggle("open");
+}
+
+
+/* =========================
+   ORDER MODAL
+========================= */
+
+function openOrder(product){
+
+    selectedProduct = product;
+
+    document.getElementById("modalProduct").textContent =
+        product.name;
+
+    document.getElementById("modalPrice").textContent =
+        product.price + " TJS";
+
+    document
+        .getElementById("modal")
+        .classList.add("show");
+
+}
+
+
+function closeModal(){
+
+    document
+        .getElementById("modal")
+        .classList.remove("show");
+
+}
+
+
+/* =========================
+   CONFIRM ORDER
+========================= */
+
+function confirmOrder(){
+
+    const playerId =
+        document.getElementById("playerId").value.trim();
+
+    const playerName =
+        document.getElementById("playerName").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+
+    if(!playerId || !playerName || !phone){
+
+        showToast("Лутфан ҳамаи майдонҳоро пур кунед.");
+
+        return;
     }
 
-});
 
-renderHome();
-renderWorkouts();
-renderFavorites();
-updateTimer();
-updateModalTimer();
+    const order = {
+
+        id:
+            "PX-" +
+            Math.floor(
+                100000 + Math.random()*900000
+            ),
+
+        product:selectedProduct.name,
+
+        price:selectedProduct.price,
+
+        playerId,
+
+        playerName,
+
+        phone,
+
+        date:new Date().toLocaleString()
+
+    };
+
+
+    orders.push(order);
+
+    localStorage.setItem(
+        "diamondOrders",
+        JSON.stringify(orders)
+    );
+
+
+    renderOrders();
+
+    updateProfile();
+
+
+    closeModal();
+
+
+    document.getElementById("playerId").value="";
+    document.getElementById("playerName").value="";
+    document.getElementById("phone").value="";
+
+
+    showToast(
+        "Фармоиш қабул шуд: " + order.id
+    );
+
+}
+
+
+/* =========================
+   ORDERS
+========================= */
+
+function renderOrders(){
+
+    const box =
+        document.getElementById("orderList");
+
+
+    if(orders.length===0){
+
+        box.innerHTML = `
+
+            <div class="order">
+
+                <div class="order-info">
+
+                    <div class="order-icon">
+                        💎
+                    </div>
+
+                    <div>
+                        <h4>Ҳоло фармоиш нест</h4>
+                        <p>Фармоиши аввалини худро созед</p>
+                    </div>
+
+                </div>
+
+                <span class="status wait">
+                    Empty
+                </span>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    box.innerHTML =
+        orders
+        .slice()
+        .reverse()
+        .map(order=>`
+
+            <div class="order">
+
+                <div class="order-info">
+
+                    <div class="order-icon">
+                        💎
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            ${order.product}
+                        </h4>
+
+                        <p>
+                            ${order.id} •
+                            ${order.playerName}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <span class="status done">
+                    ${order.price} TJS
+                </span>
+
+            </div>
+
+        `)
+        .join("");
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+function updateProfile(){
+
+    document.getElementById("profileOrders")
+        .textContent = orders.length;
+}
+
+
+/* =========================
+   LOAD ORDERS
+========================= */
+
+try{
+
+    orders =
+        JSON.parse(
+            localStorage.getItem("diamondOrders")
+        ) || [];
+
+}catch(e){
+
+    orders=[];
+
+}
+
+renderOrders();
+updateProfile();
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchProducts(){
+
+    const query =
+        document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    document
+        .querySelectorAll(".card")
+        .forEach(card=>{
+
+            const text =
+                card.dataset.search || "";
+
+            card.style.display =
+                !query || text.includes(query)
+                ? ""
+                : "none";
+
+        });
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(()=>{
+
+            toast.classList.remove("show");
+
+        },3000);
+
+}
+
+
+/* =========================
+   CLOSE MODAL OUTSIDE
+========================= */
+
+document
+    .getElementById("modal")
+    .addEventListener("click",function(e){
+
+        if(e.target === this){
+            closeModal();
+        }
+
+    });
 
 </script>
 
 </body>
 </html>
-```
